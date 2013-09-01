@@ -18,76 +18,73 @@ database-access-templates supports every relational database since we are using 
  In your repositories to load data from your database, you can write:
 
 
- public class Car 
- {
- 	public string Id { get; set; };
+	 	public class Car 
+	 	{
+	 		public string Id { get; set; };
 
- 	public string Brand { get; set; };
+	 		public string Brand { get; set; };
 
- 	public int Year { get; set; };
+	 		public int Year { get; set; };
 
- 	public string Color { get; set; };
- }
+	 		public string Color { get; set; };
+	 	}
 
- public class CarRepository
- {
+	 	public class CarRepository
+	    {
 
-    public CarRepository() 
-    { 
-    	Connection = new SqlConnection(...);
-    }
-    public CarRepository(DbConnection connection) 
-    {
-        Connection = connection;
-    }
-
-
-    public Car GetCarById(string carId)
-    {
-        return DbTemplate<Indicator>.GetObjectBySQLQuery(
-                Connection,
-                DataReader2Car,
-                string.Format(@"select id, brand, year, color 
-                				from  cars
-                				where indicator_id=@carId),
-                new DbParameterHelper[]
-                {
-                    new DbParameterHelper(DbType.String, "carId", carId)
-                });
-    }
-
-    public IEnumerable<Car> GetCars(int? page, int? recordsPerPage)
-    {
-        return DbTemplateHelper<Indicator>.GetListByProcedure(
-                Connection,
-                DataReader2Car,
-                "getCars",
-                new DbParameterHelper[]
-                {
-                    new DbParameterHelper(DbType.Int32, "p_page", ReturnsDefaultDbNumber(page)),
-                    new DbParameterHelper(DbType.Int32, "p_recordsPerPage", ReturnsDefaultDbNumber(recordsPerPage)),
-                });
-    }
-
-    private object ReturnsDefaultDbNumber(int? n)
-    {
-        if (n.HasValue) return n.Value;
-        return DBNull.Value;
-    }
-
-    public Car DataReader2Car(IDataReader reader)
-    {
-        if (!reader.HasColumn("id")) return null;
-        return new Car
-        {
-            Id          = (string)reader["id"],
-            Brand       = (string)reader["shapefile_level"],
-            Year        = (int)reader["shapefile_name"],
-            Color       = (string)reader["shapefile_path"]
-        };
-    }
- }
+	        public CarRepository() 
+	        { 
+	        	Connection = new SqlConnection(...);
+	        }
+	        public CarRepository(DbConnection connection) 
+	        {
+	            Connection = connection;
+	        }
 
 
+	        public Car GetCarById(string carId)
+	        {
+	            return DbTemplate<Indicator>.GetObjectBySQLQuery(
+	                    Connection,
+	                    DataReader2Car,
+	                    string.Format(@"select id, brand, year, color 
+	                    				from  cars
+	                    				where indicator_id=@carId),
+	                    new DbParameterHelper[]
+	                    {
+	                        new DbParameterHelper(DbType.String, "carId", carId)
+	                    });
+	        }
 
+	        public IEnumerable<Car> GetCars(int? page, int? recordsPerPage)
+	        {
+	            return DbTemplateHelper<Indicator>.GetListByProcedure(
+	                    Connection,
+	                    DataReader2Car,
+	                    "getCars",
+	                    new DbParameterHelper[]
+	                    {
+	                        new DbParameterHelper(DbType.Int32, "p_page", ReturnsDefaultDbNumber(page)),
+	                        new DbParameterHelper(DbType.Int32, "p_recordsPerPage", ReturnsDefaultDbNumber(recordsPerPage)),
+	                    });
+	        }
+
+	        private object ReturnsDefaultDbNumber(int? n)
+	        {
+	            if (n.HasValue) return n.Value;
+	            return DBNull.Value;
+	        }
+
+	        public Car DataReader2Car(IDataReader reader)
+	        {
+	            if (!reader.HasColumn("id")) return null;
+	            return new Car
+	            {
+	                Id          = (string)reader["id"],
+	                Brand       = (string)reader["shapefile_level"],
+	                Year        = (int)reader["shapefile_name"],
+	                Color       = (string)reader["shapefile_path"]
+	            };
+	        }
+	    }
 
