@@ -44,7 +44,7 @@ database-access-templates supports every relational database since we are using 
 
 	        public Car GetCarById(string carId)
 	        {
-	            return DbTemplate<Indicator>.GetObjectBySQLQuery(
+	            return DbTemplate<Car>.GetObjectBySQLQuery(
 	                    Connection,
 	                    DataReader2Car,
 	                    string.Format(@"select id, brand, year, color 
@@ -58,14 +58,14 @@ database-access-templates supports every relational database since we are using 
 
 	        public IEnumerable<Car> GetCars(int? page, int? recordsPerPage)
 	        {
-	            return DbTemplate<Indicator>.GetListByProcedure(
+	            return DbTemplate<Car>.GetListByProcedure(
 	                    Connection,
 	                    DataReader2Car,
 	                    "getCars",
 	                    new DbTemplateParameter[]
 	                    {
 	                        new DbTemplateParameter(DbType.Int32, "p_page", ReturnsDefaultDbNumber(page)),
-	                        new DbTemplateParameter(DbType.Int32, "p_recordsPerPage", ReturnsDefaultDbNumber(recordsPerPage)),
+	                        new DbTemplateParameter(DbType.Int32, "p_recordsPerPage", ReturnsDefaultDbNumber(recordsPerPage))
 	                    });
 	        }
 
