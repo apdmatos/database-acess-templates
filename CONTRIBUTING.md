@@ -3,6 +3,6 @@
 If you like this project and think that you can help, send me pull requests =)
 
 
-## Contriutors
+## Contributors
 
  - André Matos
