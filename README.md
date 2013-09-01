@@ -81,9 +81,9 @@ database-access-templates supports every relational database since we are using 
 	            return new Car
 	            {
 	                Id          = (string)reader["id"],
-	                Brand       = (string)reader["shapefile_level"],
-	                Year        = (int)reader["shapefile_name"],
-	                Color       = (string)reader["shapefile_path"]
+	                Brand       = (string)reader["brand"],
+	                Year        = (int)reader["year"],
+	                Color       = (string)reader["color"]
 	            };
 	        }
 	    }
