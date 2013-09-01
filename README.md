@@ -50,22 +50,22 @@ database-access-templates supports every relational database since we are using 
 	                    string.Format(@"select id, brand, year, color 
 	                    				from  cars
 	                    				where indicator_id=@carId),
-	                    new DbParameterHelper[]
+	                    new DbTemplateParameter[]
 	                    {
-	                        new DbParameterHelper(DbType.String, "carId", carId)
+	                        new DbTemplateParameter(DbType.String, "carId", carId)
 	                    });
 	        }
 
 	        public IEnumerable<Car> GetCars(int? page, int? recordsPerPage)
 	        {
-	            return DbTemplateHelper<Indicator>.GetListByProcedure(
+	            return DbTemplate<Indicator>.GetListByProcedure(
 	                    Connection,
 	                    DataReader2Car,
 	                    "getCars",
-	                    new DbParameterHelper[]
+	                    new DbTemplateParameter[]
 	                    {
-	                        new DbParameterHelper(DbType.Int32, "p_page", ReturnsDefaultDbNumber(page)),
-	                        new DbParameterHelper(DbType.Int32, "p_recordsPerPage", ReturnsDefaultDbNumber(recordsPerPage)),
+	                        new DbTemplateParameter(DbType.Int32, "p_page", ReturnsDefaultDbNumber(page)),
+	                        new DbTemplateParameter(DbType.Int32, "p_recordsPerPage", ReturnsDefaultDbNumber(recordsPerPage)),
 	                    });
 	        }
 
