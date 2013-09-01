@@ -49,7 +49,7 @@ database-access-templates supports every relational database since we are using 
 	                    DataReader2Car,
 	                    string.Format(@"select id, brand, year, color 
 	                    				from  cars
-	                    				where indicator_id=@carId),
+	                    				where indicator_id=@carId"),
 	                    new DbTemplateParameter[]
 	                    {
 	                        new DbTemplateParameter(DbType.String, "carId", carId)
