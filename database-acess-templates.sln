@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "database.templates", "src\database.templates\database.templates.csproj", "{179FB84D-AC2B-4CD0-80B0-A623C438B5A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "database.template.example", "src\database.template.example\database.template.example.csproj", "{15A21E8C-1ECF-4A01-BA4D-317EB90A72DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "database.templates.tests", "src\database.templates.tests\database.templates.tests.csproj", "{BCE48749-D8A7-407A-85A9-BD83412D5B8F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{179FB84D-AC2B-4CD0-80B0-A623C438B5A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{179FB84D-AC2B-4CD0-80B0-A623C438B5A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{179FB84D-AC2B-4CD0-80B0-A623C438B5A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{179FB84D-AC2B-4CD0-80B0-A623C438B5A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15A21E8C-1ECF-4A01-BA4D-317EB90A72DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15A21E8C-1ECF-4A01-BA4D-317EB90A72DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15A21E8C-1ECF-4A01-BA4D-317EB90A72DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15A21E8C-1ECF-4A01-BA4D-317EB90A72DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCE48749-D8A7-407A-85A9-BD83412D5B8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCE48749-D8A7-407A-85A9-BD83412D5B8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCE48749-D8A7-407A-85A9-BD83412D5B8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCE48749-D8A7-407A-85A9-BD83412D5B8F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
